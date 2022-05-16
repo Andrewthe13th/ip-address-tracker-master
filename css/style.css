@@ -1,0 +1,158 @@
+/* default styles */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+*,*:before,*:after{box-sizing: border-box;}
+
+html,input,button,ul,li{font-size: 18px; font-family: 'Rubik', sans-serif; color: var(--fc-dark);}
+
+ul{list-style: none;padding: 0;}
+
+h1,h2,h3,p,ul,body{margin: 0;}
+
+:root{
+  --fc-dark: hsl(0, 0%, 17%);
+  --fc-gray: hsl(0, 0%, 59%);
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+}
+
+/* styles start here */
+body{
+  /* background-color: red; */
+  height: 100vh;
+  display: grid;
+  grid-template-rows: minmax(1rem,15rem) 1fr;
+  grid-template-areas:
+  "ip"
+  "map"
+  ;
+}
+
+header{
+  background-image: url(../images/pattern-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  padding: 1.4em;
+  /* height: 16em; */
+}
+
+header h1{
+  text-align: center;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: var(--fw-medium);
+  margin-bottom: 1em;
+}
+
+.ip-search{
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+.ip-search input,.ip-search button{
+  padding: 1rem;
+}
+
+.ip-search input{
+  flex-grow: 1;
+  border: none;
+}
+
+.ip-search:focus-within{
+  border: 2px solid blue;
+}
+
+.ip-search input:focus{
+  outline: none;
+  border: none;
+}
+
+.ip-search button{
+  background-color: black;
+  border: none;
+  color: white;
+}
+
+.api-location{
+  position: relative;
+  max-width: 50em;
+}
+
+.api-display{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border-radius: 15px;
+  padding: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 1000;
+}
+
+.api-display h2{
+  color: var(--fc-gray);
+  font-size: 0.6rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.api-section{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1em;
+}
+
+.api-value{
+  font-weight: var(--fw-medium);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 800px) {
+  header{
+    height: auto;
+  }
+
+  .ip-search{
+    margin-bottom: 2em;
+  }
+
+  .api-location{
+    margin: 0 auto;
+  }
+
+  .api-display{
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+    padding: 2.5em 1em;
+  }
+
+  .api-display h2{
+    font-size: 0.8em;
+  }
+
+  .api-value{
+    font-size: 1.4rem;
+  }
+
+  .api-section + .api-section{
+    border-left: 1px solid var(--fc-gray);
+  }
+}
